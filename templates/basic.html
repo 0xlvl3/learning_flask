@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Puppies</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="css/style.css" rel="stylesheet">
+	</head>
+	<body>
+		<!-- Examples of Jinja templating {{variable}}. -->
+		<h1>This is a page {{my_variable}}</h1> <!-- Passing a variable example. -->	
+		<h2>Here is a pic of a puppy {{letter[0]}}</h2> <!-- Passing a list example. -->
+		<h2>{{pup_dict['pup_name']}}</h2> <!-- Passing a dictionary example. -->
+
+		<!-- Within Flask we it looks for static for static files (imgs). -->		
+		<img src="../static/puppy.jpg" alt="It's a puppy", width=250, height=375>
+
+
+		<ul>
+			<!-- Just printing the list. -->
+			{{ my_list }}
+
+			<!-- For loop through Jinja templating. -->
+			{% for item in my_list %}
+		    <li>{{ item }}</li>
+			{% endfor %}
+		</ul>
+
+		<!-- Ordered list template. -->
+		<ol>
+			{% for name in pup_list %}
+		    <li>{{ name }}</li>
+			{% endfor %}
+		</ol>
+
+		<!-- Control flow within Flask, Jinja templating.-->
+		{% if 'Rufus' in pup_list %}
+		<p>Found Rufus</p>
+		{% else %}
+		<p>Rufus not found?!</p>
+		{% endif %}
+	</body>
+</html>
